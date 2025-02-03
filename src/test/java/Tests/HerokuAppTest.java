@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-
-
 public class HerokuAppTest {
 
     @Test
@@ -18,11 +15,9 @@ public class HerokuAppTest {
         driver.findElement(By.name("username")).sendKeys("tomsmith");
         driver.findElement(By.name("password")).sendKeys("SuperSecretPassword!");
         driver.findElement(By.xpath("//*[@type=\"submit\"]")).click();
-
         String expectedRes = "Secure Area";
-        String actualResult = driver.findElement(By.xpath("//*[@id=\"content\"]/div/h2")).getText();
+        String actualResult = driver.findElement(By.xpath("//*[@id=\"content\"]//h2")).getText();
         Assert.assertEquals(expectedRes, actualResult);
         driver.quit();
     }
-
 }

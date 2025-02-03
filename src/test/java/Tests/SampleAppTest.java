@@ -18,17 +18,9 @@ public class SampleAppTest {
         driver.findElement(By.name("Password")).sendKeys("pwd");
         driver.findElement(By.xpath("//*[@id=\"login\"]")).click();
         WebElement loginText = driver.findElement(By.xpath("//*[@id=\"loginstatus\"]"));
-
         String actualRes = loginText.getText();
-
         String expRes = String.format("Welcome, %s!", username);
-
         Assert.assertEquals(expRes,actualRes);
-
         driver.quit();
-
-
-
-
     }
 }
